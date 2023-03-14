@@ -14,7 +14,8 @@ public partial class TestDbContext : DbContext
        throw new UnintentionalCodeFirstException();
     }
     public DbSet<countries> countries { get; set; }
-    public DbSet<name> 
+    public DbSet<capitals> name { get; set; }
+    public DbSet<capitals> area { get; set; }
 
 }
 

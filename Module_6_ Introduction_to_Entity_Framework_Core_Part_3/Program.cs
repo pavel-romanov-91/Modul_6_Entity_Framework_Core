@@ -36,7 +36,7 @@ namespace Module_6__Introduction_to_Entity_Framework_Core_Part_3
         private static List<countries> GetCountriesEF()
         {
             var context = new TestDbContecs();
-            IQueryable<countries> query = context.countries;
+            IQueryable<countries> query = context.countries.Where(c => c.capital_id == 1);
             List<countries> countries = query.ToList();
             return countries;
         }
