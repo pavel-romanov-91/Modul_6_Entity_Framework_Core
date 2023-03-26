@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modul_6_Entity_Framework_Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module_6_ Introduction_to_Entity_Framework_Core_Part_3", "Module_6_ Introduction_to_Entity_Framework_Core_Part_3\Module_6_ Introduction_to_Entity_Framework_Core_Part_3.csproj", "{0BFF28DE-0D04-4DB5-A590-9F8FC3264A20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity_Framework_Core_Part_4", "Entity_Framework_Core_Part_4\Entity_Framework_Core_Part_4.csproj", "{ADF1160D-E0F8-452F-8D56-889007616D23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0BFF28DE-0D04-4DB5-A590-9F8FC3264A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BFF28DE-0D04-4DB5-A590-9F8FC3264A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BFF28DE-0D04-4DB5-A590-9F8FC3264A20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADF1160D-E0F8-452F-8D56-889007616D23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADF1160D-E0F8-452F-8D56-889007616D23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADF1160D-E0F8-452F-8D56-889007616D23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADF1160D-E0F8-452F-8D56-889007616D23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

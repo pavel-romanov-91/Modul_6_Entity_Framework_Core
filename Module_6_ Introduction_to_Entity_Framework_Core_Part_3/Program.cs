@@ -46,12 +46,17 @@ namespace Module_6__Introduction_to_Entity_Framework_Core_Part_3
             {
                 IDbCommand command = new SqlCommand("SELECT * FROM countries");
                 command.Connection = connection;
+
                 connection.Open();
+
                 IDataReader reader = command.ExecuteReader();
+
                 List<CountriesProxy> countries = new List<CountriesProxy>();
+
                 while (reader.Read())
                 {
                     CountriesProxy country = new CountriesProxy();
+
                     country.Id = reader.GetInt32(0);
                     country.Name = reader.GetString(1);
                     countries.Add(country);

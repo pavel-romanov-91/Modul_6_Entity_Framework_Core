@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CountrisDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Countris">
+          <Key>
+            <PropertyRef Name="CountrisId" />
+          </Key>
+          <Property Name="CountrisId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Population" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Square">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="square" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_Square_Countris">
+          <End Role="Countris" Type="Self.Countris" Multiplicity="1" />
+          <End Role="Square" Type="Self.Square" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Countris">
+              <PropertyRef Name="CountrisId" />
+            </Principal>
+            <Dependent Role="Square">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CountrisDbModelStoreContainer">
+          <EntitySet Name="Countris" EntityType="Self.Countris" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Square" EntityType="Self.Square" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Square_Countris" Association="Self.FK_Square_Countris">
+            <End Role="Countris" EntitySet="Countris" />
+            <End Role="Square" EntitySet="Square" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CountrisDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Countris">
+          <Key>
+            <PropertyRef Name="CountrisId" />
+          </Key>
+          <Property Name="CountrisId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Population" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Square" Relationship="Self.FK_Square_Countris" FromRole="Countris" ToRole="Square" />
+        </EntityType>
+        <EntityType Name="Square">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="square1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Countris" Relationship="Self.FK_Square_Countris" FromRole="Square" ToRole="Countris" />
+        </EntityType>
+        <Association Name="FK_Square_Countris">
+          <End Role="Countris" Type="Self.Countris" Multiplicity="1" />
+          <End Role="Square" Type="Self.Square" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Countris">
+              <PropertyRef Name="CountrisId" />
+            </Principal>
+            <Dependent Role="Square">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CountrisDb" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Countris" EntityType="Self.Countris" />
+          <EntitySet Name="Square" EntityType="Self.Square" />
+          <AssociationSet Name="FK_Square_Countris" Association="Self.FK_Square_Countris">
+            <End Role="Countris" EntitySet="Countris" />
+            <End Role="Square" EntitySet="Square" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CountrisDbModelStoreContainer" CdmEntityContainer="CountrisDb">
+          <EntitySetMapping Name="Countris">
+            <EntityTypeMapping TypeName="CountrisDbModel.Countris">
+              <MappingFragment StoreEntitySet="Countris">
+                <ScalarProperty Name="CountrisId" ColumnName="CountrisId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Population" ColumnName="Population" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Square">
+            <EntityTypeMapping TypeName="CountrisDbModel.Square">
+              <MappingFragment StoreEntitySet="Square">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="square1" ColumnName="square" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
